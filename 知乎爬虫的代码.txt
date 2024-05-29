@@ -1,0 +1,62 @@
+import requests  # 导入用于HTTP请求的库
+import re  # 导入用于正则表达式操作的库
+import time  # 导入用于处理时间相关操作的库
+import random  # 导入用于生成随机数的库
+import json  # 导入用于JSON数据处理的库
+import csv  # 导入用于读写CSV文件的库
+from lxml import html  # 从lxml库中导入html模块，用于解析HTML文档
+
+开始时间 = time.time()  # 记录程序开始执行的时间
+wen_ti = input('请输入知乎问题编号:')  # 用户输入知乎问题编号
+hui_da = input('请输入知乎回答编号:')  # 用户输入知乎回答编号
+response = requests.get(f'https://www.zhihu.com/question/{wen_ti}/answer/{hui_da}')  # 发送请求获取页面内容
+html_content = response.text  # 获取请求响应的HTML内容
+match = re.search(r'赞同 (\d+)', html_content)  # 使用正则表达式在HTML内容中查找赞同数
+if match:  # 如果找到赞同数
+    赞同_count = match.group(1)  # 获取赞同数
+    页数_count = int(赞同_count) // 20 + 1  # 根据赞同数计算需要爬取的页数
+shu_liang = 0  # 初始化一个变量，用于记录已爬取的数据条数
+for i in range(0, 页数_count):  # 循环遍历每一页
+    response = requests.get(f'https://www.zhihu.com/api/v4/answers/{hui_da}/upvoters?limit=20&offset={20 * i}')  # 发送请求获取点赞者信息
+    qw = json.loads(response.text)['data']  # 解析响应的JSON数据
+    shu_liang1 = shu_liang  # 记录当前已处理的数据条数
+    list2 = []  # 初始化一个列表，用于存储点赞者链接
+    list4 = []  # 初始化一个列表，用于存储点赞者的详细信息
+    for qw1 in qw:  # 遍历每个点赞者的信息
+        list1 = ["https://www.zhihu.com/people/" + qw1['url_token'], ]  # 构造点赞者的主页链接
+        list2.append(list1)  # 将链接添加到列表
+        try:
+            qwe = qw1['url_token']  # 获取点赞者的用户token
+            response = requests.get(f'https://www.zhihu.com/people/{qwe}')  # 发送请求访问点赞者的主页
+            etree1 = html.etree  # 获取html解析器
+            etree2 = etree1.HTML(response.text)  # 解析HTML内容
+            text = etree2.xpath('//script[@id="js-initialData" and @type="text/json"]/text()')  # 从HTML中提取包含用户信息的脚本
+            data = json.loads(text[0])  # 解析脚本中的JSON数据
+            name = data['initialState']['entities']['users'][f'{qwe}']['name']  # 获取用户名称
+            url = "https://www.zhihu.com/people/" + qw1['url_token']  # 构造用户的主页URL
+            headline = data['initialState']['entities']['users'][f'{qwe}']['headline']  # 获取用户的头衔
+            ip_info = data['initialState']['entities']['users'][f'{qwe}']['ipInfo']  # 获取用户的IP信息
+            follower_count = data['initialState']['entities']['users'][f'{qwe}']['followerCount']  # 获取用户的粉丝数
+            following_count = data['initialState']['entities']['users'][f'{qwe}']['followingCount']  # 获取用户的关注数
+            voteup_count = data['initialState']['entities']['users'][f'{qwe}']['voteupCount']  # 获取用户的获赞数
+            thanked_count = data['initialState']['entities']['users'][f'{qwe}']['thankedCount']  # 获取用户的感谢数
+            favorited_count = data['initialState']['entities']['users'][f'{qwe}']['favoritedCount']  # 获取用户的收藏数
+
+            list3 = [name, url, headline, ip_info, follower_count, following_count, voteup_count, thanked_count,
+                     favorited_count]  # 将获取的数据组合成列表
+            list4.append(list3)  # 将列表添加到点赞者详细信息列表中
+
+            q = random.uniform(4.732867, 6.06073434)  # 生成一个随机的等待时间
+            time.sleep(q)  # 等待一段时间，以模仿人类操作的延迟
+            shu_liang1 = shu_liang1 + 1  # 更新已处理的数据条数
+            现在时间 = time.time()  # 获取当前时间
+            print(f'间隔了:{round(q, 2)}秒', f'爬取结果:{shu_liang1}', f'已耗时:{round(现在时间 - 开始时间, 2)}秒')  # 打印状态信息
+        except Exception as e:
+            print(f"发生错误：{e}")  # 如果在处理过程中发生异常，打印错误信息
+    shu_liang = shu_liang1  # 更新总的已处理数据条数
+    with open('全部点赞者的主页信息.csv', 'a', newline='', errors='ignore') as fileIP:  # 打开或创建CSV文件，用于保存点赞者的详细信息
+        writer = csv.writer(fileIP)  # 创建CSV写入器
+        writer.writerows(list4)  # 将点赞者详细信息写入文件
+    with open('一个回答的全部点赞者链接.csv', 'a', newline='') as f:  # 打开或创建CSV文件，用于保存点赞者链接
+        writer = csv.writer(f)  # 创建CSV写入器
+        writer.writerows(list2)  # 将点赞者链接写入文件

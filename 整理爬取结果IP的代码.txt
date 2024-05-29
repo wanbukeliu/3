@@ -1,0 +1,19 @@
+import csv  # 导入csv模块，用于读写CSV文件
+
+# 使用只读模式打开一个已存在的CSV文件
+with open('全部点赞者的主页信息.csv', 'r') as f:
+    reader = csv.reader(f)  # 创建一个CSV阅读器
+    q2 = []  # 初始化一个列表，用于存储处理后的IP属地信息
+    for d in reader:  # 遍历CSV文件中的每一行
+        q1 = d[3].replace('IP 属地', '')  # 从每行中获取第四列（IP属地），并去除前缀"IP 属地"
+        q2.append(q1)  # 将处理后的IP属地添加到列表q2中
+    q3 = set(q2)  # 使用集合去除q2中的重复元素，得到唯一的IP属地集合
+    list1 = []  # 初始化一个列表，用于存储最终统计结果
+    for i in q3:  # 遍历集合q3中的每一个IP属地
+        q4 = [i, q2.count(i)]  # 创建一个列表，包含IP属地及其在q2中出现的次数
+        list1.append(q4)  # 将这个列表添加到list1中
+
+    # 使用追加模式打开或创建一个新的CSV文件，用于保存地域IP统计结果
+    with open('点赞者的地域IP统计.csv', 'a', newline='') as f1:
+        writer = csv.writer(f1)  # 创建一个CSV写入器
+        writer.writerows(list1)  # 将list1中的每一行数据写入到CSV文件中
