@@ -1,0 +1,83 @@
+style.css
+
+/* 重置浏览器默认样式 */
+* {
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+    width: 70%;
+    margin:1cm 1cm 6cm 6cm
+}
+
+header,
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #333;
+    color: #fff;
+}
+
+header h1 {
+    margin: 0;
+}
+
+#message-board {
+    margin: 20px 0;
+}
+
+.message {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message h2 {
+    margin-bottom: 5px;
+}
+
+#form-section {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+#message-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#message-form label {
+    margin-bottom: 5px;
+}
+
+#message-form input[type="text"],
+#message-form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+#message-form button {
+    padding: 10px;
+    background: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#message-form button:hover {
+    background: #4cae4c;
+}
+
+footer p {
+    margin-top: 20px;
+}
