@@ -1,379 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>爬虫</title>
+    <title>留言板</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 
 <body>
-     <a href="https://omniatlas.com/maps/sub-saharan-africa/19030205/" target="_self">非洲殖民地图</a>
-     <a href="https://www.ons.gov.uk/census/maps/choropleth/identity/ethnic-group/ethnic-group-tb-6a/white" target="_self">英国各组种族分布地图</a>
-    <input type="text">
-    <div class="warning">
-        <video controls width="400" >
-        <source src="https://video.pearvideo.com/mp4/short/20240326/cont-1793116-71106265-hd.mp4" />
-        </video>
-        <table>
-        <caption>
-          支持与反对
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">IP</th>
-            <th scope="col">支持</th>
-            <th scope="col">反对</th>
-            <th scope="col">差</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td scope="row">山东</td>
-            <td>144</td>
-            <td>108</td>
-            <td>36</td>
-          </tr>
-          <tr>
-            <td scope="row">湖南</td>
-            <td>66</td>
-            <td>40</td>
-            <td>26</td>
-        </tr>
-        <tr>
-            <th scope="row">山西</th>
-            <td>38</td>
-            <td>17</td>
-            <td>21</td>
-        </tr>
-        <tr>
-            <th scope="row">河南</th>
-            <td>75</td>
-            <td>57</td>
-            <td>18</td>
-        </tr>
-        <tr>
-            <th scope="row">云南</th>
-            <td>33</td>
-            <td>16</td>
-            <td>17</td>
-        </tr>
-        <tr>
-            <th scope="row">江苏</th>
-            <td>154</td>
-            <td>139</td>
-            <td>15</td>
-        </tr>
-        <tr>
-            <th scope="row">安徽</th>
-            <td>56</td>
-            <td>47</td>
-            <td>9</td>
-        </tr>
-        <tr>
-            <th scope="row">广西</th>
-            <td>40</td>
-            <td>32</td>
-            <td>8</td>
-        </tr>
-        <tr>
-            <th scope="row">内蒙古</th>
-            <td>19</td>
-            <td>11</td>
-            <td>8</td>
-        </tr>
-        <tr>
-            <th scope="row">湖北</th>
-            <td>82</td>
-            <td>75</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <th scope="row">陕西</th>
-            <td>67</td>
-            <td>60</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <th scope="row">江西</th>
-            <td>34</td>
-            <td>27</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <th scope="row">北京</th>
-            <td>142</td>
-            <td>137</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <th scope="row">四川</th>
-            <td>109</td>
-            <td>104</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <th scope="row">甘肃</th>
-            <td>19</td>
-            <td>14</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <th scope="row">吉林</th>
-            <td>23</td>
-            <td>19</td>
-            <td>4</td>
-        </tr>
-        <tr>
-            <th scope="row">广东</th>
-            <td>209</td>
-            <td>206</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <th scope="row">黑龙江</th>
-            <td>29</td>
-            <td>26</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <th scope="row">马来西亚</th>
-            <td>4</td>
-            <td>1</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <th scope="row">河北</th>
-            <td>51</td>
-            <td>49</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <th scope="row">英国</th>
-            <td>6</td>
-            <td>4</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <th scope="row">青海</th>
-            <td>3</td>
-            <td>1</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <th scope="row">天津</th>
-            <td>33</td>
-            <td>32</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <th scope="row">新加坡</th>
-            <td>5</td>
-            <td>5</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <th scope="row">法国</th>
-            <td>1</td>
-            <td>1</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <th scope="row">泰国</th>
-            <td>1</td>
-            <td>1</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <th scope="row">印度尼西亚</th>
-            <td>1</td>
-            <td>1</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <th scope="row">韩国</th>
-            <td>1</td>
-            <td>1</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <th scope="row">贵州</th>
-            <td>14</td>
-            <td>15</td>
-            <td>-1</td>
-        </tr>
-        <tr>
-            <th scope="row">宁夏</th>
-            <td>3</td>
-            <td>4</td>
-            <td>-1</td>
-        </tr>
-        <tr>
-            <th scope="row">海南</th>
-            <td>9</td>
-            <td>11</td>
-            <td>-2</td>
-        </tr>
-        <tr>
-            <th scope="row">意大利</th>
-            <td>1</td>
-            <td>3</td>
-            <td>-2</td>
-        </tr>
-        <tr>
-            <th scope="row">澳大利亚</th>
-            <td>4</td>
-            <td>7</td>
-            <td>-3</td>
-        </tr>
-        <tr>
-            <th scope="row">浙江</th>
-            <td>99</td>
-            <td>103</td>
-            <td>-4</td>
-        </tr>
-        <tr>
-            <th scope="row">德国</th>
-            <td>3</td>
-            <td>7</td>
-            <td>-4</td>
-        </tr>
-        <tr>
-            <th scope="row">中国台湾</th>
-            <td>3</td>
-            <td>7</td>
-            <td>-4</td>
-        </tr>
-        <tr>
-            <th scope="row">美国</th>
-            <td>23</td>
-            <td>28</td>
-            <td>-5</td>
-        </tr>
-        <tr>
-            <th scope="row">福建</th>
-            <td>47</td>
-            <td>54</td>
-            <td>-7</td>
-        </tr>
-        <tr>
-            <th scope="row">新疆</th>
-            <td>13</td>
-            <td>20</td>
-            <td>-7</td>
-        </tr>
-        <tr>
-            <th scope="row">辽宁</th>
-            <td>51</td>
-            <td>59</td>
-            <td>-8</td>
-        </tr>
-        <tr>
-            <th scope="row">重庆</th>
-            <td>38</td>
-            <td>47</td>
-            <td>-9</td>
-        </tr>
-        <tr>
-            <th scope="row">日本</th>
-            <td>8</td>
-            <td>17</td>
-            <td>-9</td>
-        </tr>
-        <tr>
-            <th scope="row">加拿大</th>
-            <td>2</td>
-            <td>13</td>
-            <td>-11</td>
-        </tr>
-        <tr>
-            <th scope="row">中国香港</th>
-            <td>4</td>
-            <td>18</td>
-            <td>-14</td>
-        </tr>
-        <tr>
-            <th scope="row">未知</th>
-            <td>128</td>
-            <td>170</td>
-            <td>-42</td>
-        </tr>
-        <tr>
-            <th scope="row">上海</th>
-            <td>95</td>
-            <td>154</td>
-            <td>-59</td>
-        </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th scope="row"> </th>
-            <td>1990</td>
-            <td>1968</td>
-          </tr>
-        </tfoot>
-      </table>
-      
-        <img src="https://interactive-examples.mdn.mozilla.net/media/examples/leopard.jpg" alt="An intimidating leopard." />
-        <p>Beware of the leopard123</p>
-        <div>
-            <h1>原爬虫知乎程序,获取结果不完整,正在更新 </h1>
-            <p>不能获得一个知乎回答的全部点赞者链接,最多获取1999个,即使使用selenium或playwright(知乎限制).一个知乎回答的全部点赞者链接已被加密,不能JS逆向破解加密参数,即使携带cookies,知乎服务器也会故意给你返回错误的数据,给你返回不完整的数据,不完整的点赞者链接.</p>
-            <p>首先说明，虽然程序是我写的打包的，下面也提供了txt形式的源代码，在另一台windows运行也没问题，微云步沙箱只是提示不要安装在C盘，腾讯哈博也检测没问题。但是从本网页下载exe文件仍然会被我的edge/chorme浏览器警告然后拦截。有顾虑的可以看最后的安全运行方法。</p>
-            
-            <p>非javascript逆向爬虫,知乎限制，一个回答最多能爬1980个点赞者链接,每小时爬取600条左右</p>
-            <p>exe运行输出结果csv文件也是表格，和excel几乎没差别excel可打开。</p>
-        </div>
-        <div>
-            <p>手机端：</p>
-            <p>知乎app——选择一个知乎回答——分享——分享链接——复制到一个空白文档</p>
-            <p>就会出现“https://www.zhihu.com/question/655477917/answer/3492900832”这类网址</p>
-            <p>"question"后面的数字就是问题编号，"answer"后面的数字就是回答编号.</p>    
-            <p>电脑网页端：</p>
-            <p>打开知乎网页——选择一个知乎回答——分享——分享链接——复制到一个空白文档或网址输入栏</p>
-            <p>就会出现“https://www.zhihu.com/question/655477917/answer/3492900832”这类网址</p>
-            <p>"question"后面的数字就是问题编号，"answer"后面的数字就是回答编号.如下图.
-                <img src="1.jpg" alt="个人网站">
-            </p>
-        </div>
-        <div>
-            <p>爬一个回答的点赞者主页网址链接(最多能爬1980个)，输出一个csv文件.</p>
-            <p>结果如下图.已注销用户主页的网址：https://www.zhihu.com/people/，正常用户的主页网址：https://www.zhihu.com/people/ +" 注册时的用户名(中文名会改为英文/英文+数字)".如下图.
-            </p>
-            <img src="2.jpg" alt="个人网站">
-            <p>访问一个知乎用户的主页网址链接，获得网页源代码，从源代码筛选出9类信息.知乎名,主页网址链接,个人签名,IP属地,被关注,关注,赞同,喜欢,收藏.输出一个csv文件.如下图.</p>
-            <img src="3.jpg" alt="个人网站">
-            <p>安装包是exe文件，还不会设置图形化操作页面，所以双击会打开命令行运行，只需输入"问题编号","回答编号".如下图.</p>
-            <img src="4.jpg" alt="个人网站">
-        </div>
-        <div>
-            <p>知乎爬虫exe运行输出2个csv文件，点赞者的地域IP分类运行输出一个csv文件</p>
-            <p>知乎爬虫exe运行出现，“错误”，不用理会，这些错误都是已注销用户</p>
-            <p>第二个exe文件运行需要读取第一个exe文件输出的一个文件，2个exe文件必须放在同一个文件夹。exe文件最好放在D/E/F等盘，不要放C盘。</p>
-            <a href="知乎爬虫.zip" download="知乎爬虫.zip">知乎爬虫压缩包</a>
-            <a href="点赞者的地域IP分类.zip" download="点赞者的地域IP分类.zip">点赞者的地域IP分类压缩包</a>
-            <a href="知乎爬虫的代码.txt" download="ExampleDocument.txt" class="download-link">知乎爬虫的源代码</a>
-            <a href="整理爬取结果IP的代码.txt" download="ExampleDocument.txt" class="download-link">点赞者的地域IP分类的源代码</a>
-        </div>
-    
-        <div>
-            <p>安全运行方法</p>
-            <p>
-                <span>
-                云沙箱检测exe文件，安全无毒后运行
-                <a href="https://www.bilibili.com/video/BV1Be411K7dj/" target="_self">哔哩哔哩5款沙箱工具推荐</a>
-                <span>
-                <a href="https://s.threatbook.com/" target="_self">微步云沙箱</a>
-                <a href="https://habo.qq.com/" target="_self">腾讯哈勃分析系统</a>
-                <a href="https://www.virustotal.com/" target="_self">VirusTotal</a>
-                <a href="http://www.virscan.org" target="_self">VirScan</a>
-                <a href="https://mac-cloud.riskivy.com/detect" target="_self">大圣云沙箱</a>
-            </p>
-            <p>或者淘宝12元购买家庭版windows升级专业版，专业版有windows sandox功能，直接把exe文件拖拽到windows sandox运行<a href="https://www.bilibili.com/video/BV1U94y1B7Em/" target="_self">windows sandbox教程</a></p>
-        </div>
-      </div>
-      
+    <header>
+        <h1>欢迎来到留言板</h1>
+    </header>
+
+    <section id="message-board">
+        <article class="message">
+            <h2>留言标题</h2>
+            <p>留言内容...</p>
+        </article>
+        <!-- 更多留言可以在这里添加 -->
+    </section>
+
+    <section id="form-section">
+        <h2>留下你的留言</h2>
+        <form id="message-form">
+            <label for="name">姓名:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="message">留言:</label>
+            <textarea id="message" name="message" required style="height: 200px;"></textarea>
+
+            <button type="submit">提交留言</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 留言板所有权利保留</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- 假设JavaScript脚本文件名为script.js -->
 </body>
 
 </html>
-
